@@ -1,1 +1,11 @@
-<p>products-list works!</p>
+<ul>
+  <li *ngFor="let product of productList; index as i" [class.completed]="product.completed">
+    <div>
+      Id: {{product.id}}
+      <br>
+      {{product.name}}
+      <br>
+      {{ product.description }}
+    </div>
+  </li>
+</ul>
