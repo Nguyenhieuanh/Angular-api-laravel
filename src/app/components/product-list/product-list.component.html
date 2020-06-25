@@ -14,7 +14,7 @@
   </thead>
   <tbody>
     <tr
-      *ngFor="let product of productList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; let i = index">
+      *ngFor="let product of productList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize | filter:keyword; let i = index">
       <td>{{ i+1 }}</td>
       <td>{{ product.name }}</td>
       <td>
