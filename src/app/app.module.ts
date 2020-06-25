@@ -13,12 +13,12 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     ProductListComponent,
     ProductFormComponent,
-    HttpClientModule,
-    ReactiveFormsModule
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
