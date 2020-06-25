@@ -7,7 +7,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    NgbPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

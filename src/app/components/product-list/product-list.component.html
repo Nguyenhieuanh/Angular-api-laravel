@@ -8,7 +8,8 @@
       <th>Price</th>
     </thead>
     <tbody>
-      <tr *ngFor="let product of productList; index as i">
+      <tr
+        *ngFor="let product of productList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; let i = index">
         <td>{{ i+1 }}</td>
         <td>{{ product.name }}</td>
         <td>
@@ -19,4 +20,6 @@
       </tr>
     </tbody>
   </table>
+  <ngb-pagination [(page)]="page" [pageSize]="pageSize" [boundaryLinks]="true" [collectionSize]="productList.length">
+  </ngb-pagination>
 </div>
