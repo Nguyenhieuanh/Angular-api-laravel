@@ -1,3 +1,4 @@
+import { SearchService } from './../../services/search.service';
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/product.interface';
 import { ProductService } from 'src/app/services/product.service';
@@ -11,10 +12,9 @@ export class ProductListComponent implements OnInit {
   productList: IProduct[] = [];
   page = 1;
   pageSize = 10;
-  // categories: ICategory[] = [];
-  // data: Array<any>;
+  keyword: any;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private searchService: SearchService) { }
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe(next => {
@@ -26,6 +26,8 @@ export class ProductListComponent implements OnInit {
     }, () => {
       console.log('complete');
     });
+
+    this.searchService.searchInput.subscribe(text => this.keyword = text);
 
   }
 
