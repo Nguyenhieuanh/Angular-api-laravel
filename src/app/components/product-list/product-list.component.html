@@ -1,25 +1,30 @@
-<div class="container pt-5">
-  <table class="table table-striped">
-    <thead>
-      <th>#</th>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Description</th>
-      <th>Price</th>
-    </thead>
-    <tbody>
-      <tr
-        *ngFor="let product of productList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; let i = index">
-        <td>{{ i+1 }}</td>
-        <td>{{ product.name }}</td>
-        <td>
-          {{ product.category_id }}
-        </td>
-        <td>{{ product.description }}</td>
-        <td>{{ product.price }}</td>
-      </tr>
-    </tbody>
-  </table>
-  <ngb-pagination [(page)]="page" [pageSize]="pageSize" [boundaryLinks]="true" [collectionSize]="productList.length">
-  </ngb-pagination>
-</div>
+<select [(ngModel)]="pageSize" class="col-1 custom-select my-3">
+  <option>5</option>
+  <option selected>10</option>
+  <option>15</option>
+  <option>20</option>
+</select>
+<table class="table table-striped">
+  <thead>
+    <th>#</th>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Description</th>
+    <th>Price</th>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let product of productList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; let i = index">
+      <td>{{ i+1 }}</td>
+      <td>{{ product.name }}</td>
+      <td>
+        {{ product.category_id }}
+      </td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.price }}</td>
+    </tr>
+  </tbody>
+</table>
+<ngb-pagination [(page)]="page" [pageSize]="pageSize" [boundaryLinks]="true" [maxSize]="3" [rotate]="true"
+  [collectionSize]="productList.length">
+</ngb-pagination>
