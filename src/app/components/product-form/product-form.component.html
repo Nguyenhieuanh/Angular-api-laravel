@@ -14,11 +14,7 @@
   <div class="form-group">
     <label for="exampleFormControlSelect1">Example select</label>
     <select class="form-control" id="exampleFormControlSelect1" formControlName="category">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+      <option *ngFor="let category of categoriesList" value="{{ category.id }}">{{ category.name }}</option>
     </select>
   </div>
   <button class="btn btn-primary">Create</button>

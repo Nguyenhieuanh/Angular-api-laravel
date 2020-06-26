@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IProduct } from '../product.interface';
+import { ICategory } from '../category.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class ProductService {
     return this.http.get<IProduct[]>(this.API_URL);
   }
 
-  showProductAddForm(): Observable<ICategory[]> {
+  getCategories(): Observable<ICategory[]> {
     return this.http.get<ICategory[]>(this.API_URL_CATEGORY);
   }
 
