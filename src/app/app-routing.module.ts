@@ -1,3 +1,4 @@
+import { UpdateFormComponent } from './components/update-form/update-form.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'products/create',
     component: ProductFormComponent
+  },
+  {
+    path: 'products/edit/:id',
+    component: UpdateFormComponent
   }
 ];
 

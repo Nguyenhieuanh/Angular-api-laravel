@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { UpdateFormComponent } from './components/update-form/update-form.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ProductListComponent,
     ProductFormComponent,
     NavbarComponent,
+    UpdateFormComponent,
   ],
   imports: [
     BrowserModule,

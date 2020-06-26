@@ -26,7 +26,6 @@ export class ProductListComponent implements OnInit {
     }, () => {
       console.log('complete');
     });
-
     this.searchService.searchInput.subscribe(text => this.keyword = text);
   }
 

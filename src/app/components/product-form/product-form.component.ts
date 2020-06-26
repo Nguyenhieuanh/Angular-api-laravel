@@ -11,8 +11,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class ProductFormComponent implements OnInit {
   createForm: FormGroup;
+  updateForm: FormGroup;
   categoriesList: ICategory[];
   msg: string;
+  product: IProduct;
 
   constructor(private formBuilder: FormBuilder, private productService: ProductService) { }
 
@@ -28,6 +30,14 @@ export class ProductFormComponent implements OnInit {
       description: ['', Validators.required],
       price: [, Validators.required],
       category_id: [1, Validators.required]
+    });
+  }
+
+  edit(i) {
+    this.productService.getProductById(i).subscribe(res => {
+      this.product = res;
+    }, error => {
+      console.log(error);
     });
   }
 
