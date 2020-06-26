@@ -10,10 +10,15 @@ import { ICategory } from '../category.interface';
 export class ProductService {
   private readonly API_URL = 'http://demo-api-angular.test/api/products';
   private API_URL_CATEGORY = 'http://demo-api-angular.test/api/products/create';
+  private API_URL_DETAIL = 'http://demo-api-angular.test/api/products/edit';
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(this.API_URL);
+  }
+
+  getProductById(id: number): Observable<IProduct> {
+    return this.http.get<IProduct>(`${this.API_URL_DETAIL}/${id}`);
   }
 
   getCategories(): Observable<ICategory[]> {
