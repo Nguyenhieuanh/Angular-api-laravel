@@ -8,10 +8,15 @@ import { IProduct } from '../product.interface';
 })
 export class ProductService {
   private readonly API_URL = 'http://demo-api-angular.test/api/products';
+  private readonly API_URL_CATEGORY = 'http://demo-api-angular.test/api/products/create';
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(this.API_URL);
+  }
+
+  showProductAddForm(): Observable<ICategory[]> {
+    return this.http.get<ICategory[]>(this.API_URL_CATEGORY);
   }
 
   add(product: IProduct) {
