@@ -1,3 +1,4 @@
+import { IProduct } from 'src/app/product.interface';
 import { ICategory } from './../../category.interface';
 import { ProductService } from 'src/app/services/product.service';
 import { Component, OnInit } from '@angular/core';
@@ -25,12 +26,17 @@ export class ProductFormComponent implements OnInit {
       name: ['', Validators.required],
       description: ['', Validators.required],
       price: [, Validators.required],
-      category_id: [, Validators.required]
+      category_id: [1, Validators.required]
     });
   }
 
   onSubmit() {
-    this.productService.add(this.createForm.value);
+    const product: IProduct = this.createForm.value;
+    console.log(product);
+    return this.productService.add(product).subscribe(res => {
+      console.log(res);
+      // this.createForm.setValue(null);
+    });
   }
 
 }

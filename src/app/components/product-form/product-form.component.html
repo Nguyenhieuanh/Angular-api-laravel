@@ -1,21 +1,23 @@
 <form action="" [formGroup]="createForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" formGroupName="name" />
+    <input type="text" class="form-control" formControlName="name" />
   </div>
   <div class="form-group">
     <label for="description">Description</label>
-    <input type="text" class="form-control" formGroupName="description" />
+    <input type="text" class="form-control" formControlName="description" />
   </div>
   <div class="form-group">
     <label for="price">Price</label>
-    <input type="number" class="form-control" formGroupName="name" />
+    <input type="number" class="form-control" formControlName="price" />
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1" formControlName="category">
+    <select class="form-control" id="exampleFormControlSelect1" formControlName="category_id">
       <option *ngFor="let category of categoriesList" value="{{ category.id }}">{{ category.name }}</option>
     </select>
   </div>
   <button class="btn btn-primary">Create</button>
 </form>
+
+{{ createForm.value | json}}
