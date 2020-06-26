@@ -41,7 +41,18 @@ export class UpdateFormComponent implements OnInit {
   }
 
   onSubmit() {
-    //
+    if (this.updateForm.valid) {
+      const { value } = this.updateForm;
+      const data = {
+        ...this.product,
+        ...value
+      };
+      this.productService.update(data).subscribe(res => {
+        this.router.navigate(['/products']);
+      }, error => {
+        console.log(error);
+      });
+    }
   }
 
 }
