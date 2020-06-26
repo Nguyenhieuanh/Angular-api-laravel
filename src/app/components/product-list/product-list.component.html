@@ -1,10 +1,12 @@
-<select [(ngModel)]="pageSize" class="col-1 custom-select my-3">
-  <option>5</option>
-  <option selected>10</option>
-  <option>15</option>
-  <option>20</option>
-  <option>{{ productList.length }}</option>
-</select>
+<div class="col-1">
+  <select [(ngModel)]="pageSize" class="col-6 custom-select my-3">
+    <option>5</option>
+    <option selected>10</option>
+    <option>15</option>
+    <option>20</option>
+    <option>{{ productList.length }}</option>
+  </select>
+</div>
 <table class="table table-striped">
   <thead>
     <th>#</th>
@@ -13,6 +15,7 @@
     <th>Category</th>
     <th>Description</th>
     <th>Price</th>
+    <td>Action</td>
   </thead>
   <tbody>
     <tr
@@ -25,6 +28,10 @@
       </td>
       <td>{{ product.description }}</td>
       <td>{{ product.price }}</td>
+      <td>
+        <button class="btn btn-warning btn-sm">Edit</button> |
+        <button class="btn btn-sm btn-danger" onclick="return alert('want to delete?')">Delete</button>
+      </td>
     </tr>
   </tbody>
 </table>

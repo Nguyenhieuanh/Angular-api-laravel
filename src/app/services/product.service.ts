@@ -20,7 +20,9 @@ export class ProductService {
     return this.http.get<ICategory[]>(this.API_URL_CATEGORY);
   }
 
-  add(product: IProduct) {
-    return this.http.post(this.API_URL_CATEGORY, product);
+  add(product: IProduct): Observable<IProduct> {
+    return this.http.post<IProduct>(this.API_URL_CATEGORY, product);
   }
+
+  // destroy(id: number): Observable
 }

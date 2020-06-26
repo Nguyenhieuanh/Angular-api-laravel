@@ -12,6 +12,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class ProductFormComponent implements OnInit {
   createForm: FormGroup;
   categoriesList: ICategory[];
+  msg: string;
 
   constructor(private formBuilder: FormBuilder, private productService: ProductService) { }
 
@@ -34,9 +35,11 @@ export class ProductFormComponent implements OnInit {
     const product: IProduct = this.createForm.value;
     console.log(product);
     return this.productService.add(product).subscribe(res => {
-      console.log(res);
-      // this.createForm.setValue(null);
+      this.msg = 'Add successfully';
+      this.createForm.reset({
+      category_id: 1
+      });
     });
   }
-
 }
+
