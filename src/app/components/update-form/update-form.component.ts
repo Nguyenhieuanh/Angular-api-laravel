@@ -32,7 +32,6 @@ export class UpdateFormComponent implements OnInit {
     });
 
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log(id);
     this.productService.getProductById(id).subscribe(res => {
       this.product = res;
       this.updateForm.patchValue(this.product);
