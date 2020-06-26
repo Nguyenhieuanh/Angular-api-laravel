@@ -27,7 +27,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     NgbModule,
     NgbPaginationModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

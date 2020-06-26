@@ -9,7 +9,12 @@ import { IProduct } from '../product.interface';
 export class ProductService {
   private readonly API_URL = 'http://demo-api-angular.test/api/products';
   constructor(private http: HttpClient) { }
+
   getProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(this.API_URL);
+  }
+
+  add(product: IProduct) {
+    return this.http.post(this.API_URL, product);
   }
 }
