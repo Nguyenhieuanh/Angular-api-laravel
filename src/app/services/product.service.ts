@@ -24,5 +24,7 @@ export class ProductService {
     return this.http.post<IProduct>(this.API_URL_CATEGORY, product);
   }
 
-  // destroy(id: number): Observable
+  destroy(id: number): Observable<any> {
+    return this.http.delete(`${this.API_URL}/${id}`);
+  }
 }

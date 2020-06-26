@@ -28,7 +28,15 @@ export class ProductListComponent implements OnInit {
     });
 
     this.searchService.searchInput.subscribe(text => this.keyword = text);
+  }
 
+  deleteProduct(i) {
+    const product = this.productList[i];
+    this.productService.destroy(product.id).subscribe(() => {
+      this.productList = this.productList.filter(
+        p => p.id !== product.id
+      );
+    });
   }
 
 }
